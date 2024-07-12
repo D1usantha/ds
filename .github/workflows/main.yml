@@ -1,0 +1,23 @@
+name: Deploy Website
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.5.3
+      with:
+        ssh-private-key: ${{ secrets.SECRETDS }}
+
+    - name: Deploy website via SSH
+      run: |
+        scp -r ./* ubuntu@18.140.65.150:/www/wwwroot/KDJ.RUN.PLACE
