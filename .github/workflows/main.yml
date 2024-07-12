@@ -21,4 +21,4 @@ jobs:
 
     - name: Deploy website via SCP
       run: |
-        scp -o StrictHostKeyChecking=no -r ./* ubuntu@18.140.65.150:/www/wwwroot/KDJ.RUN.PLACE
+        scp -o StrictHostKeyChecking=no -r ./* root@18.140.65.150:/www/wwwroot/KDJ.RUN.PLACE
